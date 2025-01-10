@@ -57,10 +57,16 @@ import androidx.compose.ui.unit.sp
 import com.example.unscramble.R
 import com.example.unscramble.ui.theme.UnscrambleTheme
 
+/*
+ * Pass in the GameViewModel as a parameter to the GameScreen composable
+ */
 @Composable
 fun GameScreen(
     gameViewModel: GameViewModel = viewModel()
 ) {
+    /* Get the current game state by collecting the uiState StateFlow from the GameViewModel
+     * and converting it to a State object using the collectAsState() function
+     */
     val gameUiState = gameViewModel.uiState.collectAsState().value
     val mediumPadding = dimensionResource(R.dimen.padding_medium)
 
